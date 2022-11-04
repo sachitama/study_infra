@@ -44,23 +44,23 @@ resource "aws_acm_certificate_validation" "cert_valid" {
 }
 
 # for virginia region
-resource "aws_acm_certificate" "virginia_cert" {
-  provider = aws.virginia
+# resource "aws_acm_certificate" "virginia_cert" {
+#   provider = aws.virginia
 
-  domain_name       = "*.${var.domain}"
-  validation_method = "DNS"
+#   domain_name       = "*.${var.domain}"
+#   validation_method = "DNS"
 
-  tags = {
-    Name    = "${var.project}-${var.environment}-wildcard-sslcert"
-    Project = var.project
-    Env     = var.environment
-  }
+#   tags = {
+#     Name    = "${var.project}-${var.environment}-wildcard-sslcert"
+#     Project = var.project
+#     Env     = var.environment
+#   }
 
-  lifecycle {
-    create_before_destroy = true
-  }
+#   lifecycle {
+#     create_before_destroy = true
+#   }
 
-  depends_on = [
-    aws_route53_zone.aws_route53_zone
-  ]
-}
+#   depends_on = [
+#     aws_route53_zone.aws_route53_zone
+#   ]
+# }
